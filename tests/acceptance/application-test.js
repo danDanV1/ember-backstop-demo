@@ -1,13 +1,17 @@
-import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
+import { module, test } from "qunit";
+import { visit, currentURL } from "@ember/test-helpers";
+import { setupApplicationTest } from "ember-qunit";
 
-module('Acceptance | application', function(hooks) {
+import backstop from "ember-backstop/test-support/backstop"; //visual regression
+
+module("Acceptance | application", function(hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /application', async function(assert) {
-    await visit('/application');
+  test("visiting /", async function(assert) {
+    await visit("/");
 
-    assert.equal(currentURL(), '/application');
+    assert.equal(currentURL(), "/");
+
+    await backstop(assert);
   });
 });
