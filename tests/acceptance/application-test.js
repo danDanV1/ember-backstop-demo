@@ -12,6 +12,7 @@ module("Acceptance | application", function(hooks) {
 
     assert.equal(currentURL(), "/");
 
-    await backstop(assert);
+    //await backstop(assert);
+    await backstop("custom title");
   });
 });
